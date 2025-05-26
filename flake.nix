@@ -37,7 +37,7 @@
             homeConfigurations = {
                 leanderk = home-manager.lib.homeManagerConfiguration {
                     inherit pkgs;
-                    modules = [ ./home ];
+                    modules = [ ./home/leanderk/home.nix ];
                     extraSpecialArgs = {
                         inherit pkgs-unstable;
                         inherit inputs;

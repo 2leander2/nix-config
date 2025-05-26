@@ -11,9 +11,14 @@ in
     networking.hostName = "desktop";
 
     nix.settings = {
-        substituters = ["https://hyprland.cachix.org"];
-        trusted-substituters = ["https://hyprland.cachix.org"];
-        trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+        substituters = [
+            "https://cache.nixos.org/"
+            "https://hyprland.cachix.org"
+        ];
+        trusted-public-keys = [
+            "cache.nixos.org-1:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        ];
     };
 
     programs.hyprland = {
@@ -24,8 +29,10 @@ in
     };
 
     hardware.graphics = {
+        enable = true;
         package = pkgs-unstable.mesa;
         package32 = pkgs-unstable.pkgsi686Linux.mesa;
+        enable32Bit = true;
     };
 
     users.users.leanderk = {

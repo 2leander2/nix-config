@@ -18,6 +18,9 @@
         ];
     };
 
+    # Disable for dual boot
+    virtualisation.vmware.guest.enable = true;
+
     programs.hyprland.enable = true;
 
     environment.systemPackages = with pkgs; [

@@ -10,6 +10,12 @@ in
 
     networking.hostName = "desktop";
 
+    nix.settings = {
+        substituters = ["https://hyprland.cachix.org"];
+        trusted-substituters = ["https://hyprland.cachix.org"];
+        trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    };
+
     programs.hyprland = {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
@@ -17,7 +23,7 @@ in
             inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
 
-    hardware.opengl = {
+    hardware.graphics = {
         package = pkgs-unstable.mesa;
         package32 = pkgs-unstable.pkgsi686Linux.mesa;
     };
@@ -51,6 +57,9 @@ in
     networking.networkmanager.enable = true;
     time.timeZone = "Europe/Berlin";
     i18n.defaultLocale = "en_US.UTF-8";
+
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
 
     nixpkgs.config.allowUnfree = true;
 

@@ -25,11 +25,8 @@
         git
     ];
 
-    gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 7d";
-    };
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
 
     users.users.leanderk = {
         isNormalUser = true;

@@ -2,8 +2,8 @@
     description = "NixOS with Hyprland (Flake)";
 
     inputs = {
-        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-        hyprland.url = "github:hyprwm/Hyprland";
+        nixpkgs.url = "github:NixOS/nixpkgs/25.05";
+        hyprland.url = "github:hyprwm/Hyprland/v0.49.0";
     };
 
     outputs =

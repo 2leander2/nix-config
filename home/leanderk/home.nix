@@ -12,13 +12,17 @@
     home.homeDirectory = "/home/leanderk";
     home.stateVersion = "25.05";
 
-    programs.hyprland.enable = true;
+    wayland.windowManager.hyprland = {
+        enable = true;
+        package = null;
+        portalPackage = null;
+    };
 
     home.packages = with pkgs; [
+        kitty
         firefox
         neovim
         zsh
-        kitty
     ];
 
     xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;

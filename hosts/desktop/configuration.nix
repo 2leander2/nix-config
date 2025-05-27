@@ -21,6 +21,8 @@
     # Disable for dual boot
     virtualisation.vmware.guest.enable = true;
 
+    programs.hyprland.enable = true;
+
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     environment.systemPackages = with pkgs; [

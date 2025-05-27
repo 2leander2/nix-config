@@ -19,7 +19,7 @@
     };
 
     # Disable for dual boot
-    virtualisation.vmware.guest.enable = true;
+    services.vmwareGuest.enable = true;
 
     programs.hyprland.enable = true;
 

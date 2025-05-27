@@ -12,20 +12,29 @@
     home.homeDirectory = "/home/leanderk";
     home.stateVersion = "25.05";
 
-    wayland.windowManager.hyprland = {
-        enable = true;
-        package = null;
-        portalPackage = null;
-    };
-
     home.packages = with pkgs; [
-        terminator
+        github-desktop
+        bitwarden-desktop
+        xcur2png
+        hyprcursor
+        hyprpaper
+        unzip
+        zip
+        wofi
+        discordo
+        spotify-player
+        nwg-displays
+        nixfmt-rfc-style
+        nil
         xterm
+        vscode
         alacritty
         firefox
         neovim
-        zsh
+        toybox
+        eww
     ];
 
-    xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
+    # xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
+    # home.file.".zshrc".source = ./zshrc;
 }

@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, config, ... }:
 
 {
     imports = [
@@ -18,22 +18,37 @@
         ];
     };
 
-    # Disable for dual boot
-    virtualisation.vmware.guest.enable = true;
-
     programs.hyprland.enable = true;
+    programs.zsh.enable = true;
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     environment.systemPackages = with pkgs; [
+        zsh
         git
     ];
+
+    nixpkgs.config.allowUnfree = true;
+    hardware.graphics = {
+        enable = true;
+    };
+    services.xserver.videoDrivers = ["nvidia"];
+    hardware.nvidia = {
+        modesetting.enable = true;
+        powerManagement.enable = false;
+        powerManagement.finegrained = false;
+
+        open = true;
+        nvidiaSettings = true;
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
     users.users.leanderk = {
         isNormalUser = true;
+        shell = pkgs.zsh;
         extraGroups = [
             "wheel"
             "networkmanager"
@@ -53,8 +68,6 @@
     networking.networkmanager.enable = true;
     time.timeZone = "Europe/Berlin";
     i18n.defaultLocale = "en_US.UTF-8";
-
-    nixpkgs.config.allowUnfree = true;
 
     system.stateVersion = "25.05";
 }

@@ -19,7 +19,7 @@
     };
 
     home.packages = with pkgs; [
-        kitty
+        alacritty
         firefox
         neovim
         zsh

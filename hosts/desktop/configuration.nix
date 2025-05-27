@@ -18,12 +18,19 @@
         ];
     };
 
-    programs.hyprland.enable = true;
+    programs.sway = {
+        enable = true;
+        wrapperFeatures.gtk = true;
+    };
     programs.zsh.enable = true;
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     environment.systemPackages = with pkgs; [
+        grim
+        slurp
+        wl-clipboard
+        mako
         zsh
         git
     ];

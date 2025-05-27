@@ -16,8 +16,6 @@
         github-desktop
         bitwarden-desktop
         xcur2png
-        hyprcursor
-        hyprpaper
         unzip
         zip
         wofi

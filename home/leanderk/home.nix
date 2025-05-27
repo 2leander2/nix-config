@@ -19,6 +19,7 @@
     };
 
     home.packages = with pkgs; [
+        terminator
         xterm
         alacritty
         firefox

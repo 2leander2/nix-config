@@ -34,7 +34,7 @@
         in
         {
             nixosConfigurations = {
-                desktopNvidia = nixpkgs.lib.nixosSystem {
+                desktop-nvidia = nixpkgs.lib.nixosSystem {
                     inherit system;
                     modules = [
                         lanzaboote.nixosModules.lanzaboote

@@ -92,7 +92,7 @@
         enable = true;
         settings = {
             default_session = {
-                command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd launch-sway";
+                command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd /etc/launch-sway.zsh";
                 user = "greeter";
             };
         };

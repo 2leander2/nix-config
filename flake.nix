@@ -34,11 +34,20 @@
         in
         {
             nixosConfigurations = {
-                desktop = nixpkgs.lib.nixosSystem {
+                desktopNvidia = nixpkgs.lib.nixosSystem {
                     inherit system;
                     modules = [
                         lanzaboote.nixosModules.lanzaboote
-                        ./hosts/desktop/configuration.nix
+                        ./hosts/desktop-nvidia/configuration.nix
+                    ];
+                    specialArgs = {
+                        inherit pkgs-unstable;
+                    };
+                };
+                wsl = nixpkgs.lib.nixosSystem {
+                    inherit system;
+                    modules = [
+                        ./hosts/wsl/configuration.nix
                     ];
                     specialArgs = {
                         inherit pkgs-unstable;

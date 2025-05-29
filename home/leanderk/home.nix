@@ -14,6 +14,10 @@
 
     home.packages = with pkgs; [
         nnn
+        flameshot
+        steamcmd
+        polychromatic
+        steam-tui
         github-desktop
         google-chrome
         bitwarden-desktop
@@ -35,6 +39,9 @@
         toybox
         waybar
         eww
+        nerd-fonts._3270
+        nerd-fonts.geist-mono
+        fira-mono
     ];
 
 # https://google.de

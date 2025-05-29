@@ -18,17 +18,28 @@
         ];
     };
 
+    environment.etc."launch-sway.zsh".source = ../../launch-sway.zsh;
+
     programs.sway = {
         enable = true;
         wrapperFeatures.gtk = true;
     };
     programs.zsh.enable = true;
 
+    xdg.portal = {
+        enable = true;
+        wlr.enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
+
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+    hardware.openrazer.enable = true;
 
     environment.systemPackages = with pkgs; [
         cage
         sbctl
+        openrazer-daemon
         efibootmgr
         grim
         slurp
@@ -36,7 +47,16 @@
         mako
         zsh
         git
+        wineWowPackages.stable
+        wineWowPackages.waylandFull
     ];
+
+    programs.steam = {
+        enable = true;
+        remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+        dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+        localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    };
 
     nixpkgs.config.allowUnfree = true;
     hardware.graphics = {
@@ -72,7 +92,7 @@
         enable = true;
         settings = {
             default_session = {
-                command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway --unsupported-gpu'";
+                command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd launch-sway";
                 user = "greeter";
             };
         };
@@ -84,6 +104,7 @@
         extraGroups = [
             "wheel"
             "networkmanager"
+            "openrazer"
         ];
         description = "Leander Kroth";
     };

@@ -5,7 +5,7 @@
         /etc/nixos/hardware-configuration.nix
     ];
 
-    networking.hostName = "desktop";
+    networking.hostName = "desktop-nvidia";
 
     nix.settings = {
         substituters = [

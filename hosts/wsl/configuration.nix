@@ -25,7 +25,6 @@
         enable = true;
         wrapperFeatures.gtk = true;
     };
-    programs.zsh.enable = true;
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -37,7 +36,6 @@
         slurp
         wl-clipboard
         mako
-        zsh
         git
     ];
 
@@ -55,7 +53,6 @@
 
     users.users.leanderk = {
         isNormalUser = true;
-        shell = pkgs.zsh;
         extraGroups = [
             "wheel"
             "networkmanager"

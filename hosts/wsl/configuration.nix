@@ -2,10 +2,13 @@
 
 {
     imports = [
-        /etc/nixos/hardware-configuration.nix
+        <nixos-wsl/modules>
     ];
 
-    networking.hostName = "desktop-nvidia";
+    wsl.enable = true;
+    wsl.defaultUser = "nixos";
+
+    networking.hostName = "wsl";
 
     nix.settings = {
         substituters = [
@@ -39,34 +42,6 @@
     ];
 
     nixpkgs.config.allowUnfree = true;
-    hardware.graphics = {
-        enable = true;
-    };
-    services.xserver.videoDrivers = ["nvidia"];
-    hardware.nvidia = {
-        modesetting.enable = true;
-        powerManagement.enable = false;
-        powerManagement.finegrained = false;
-
-        open = true;
-        nvidiaSettings = true;
-        package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
-
-    boot.loader.efi.canTouchEfiVariables = true;
-    boot.loader.systemd-boot.enable = lib.mkForce false;
-
-    boot.lanzaboote = {
-        enable = true;
-        pkiBundle = "/var/lib/sbctl";
-    };
-
-    boot.loader.systemd-boot.extraEntries = {
-        "windows.conf" = ''
-            title Windows Boot Manager
-            efi /EFI/Microsoft/Boot/bootmgfw.efi
-        '';
-    };
 
     services.greetd = {
         enable = true;

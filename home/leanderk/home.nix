@@ -13,13 +13,16 @@
     home.stateVersion = "25.05";
 
     home.packages = with pkgs; [
+        nnn
         github-desktop
+        google-chrome
         bitwarden-desktop
         xcur2png
         unzip
         zip
         wofi
-        discordo
+        vesktop
+        pamixer
         spotify-player
         nwg-displays
         nixfmt-rfc-style
@@ -30,9 +33,11 @@
         firefox
         neovim
         toybox
+        waybar
         eww
     ];
 
+# https://google.de
     # xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
     # home.file.".zshrc".source = ./zshrc;
 }

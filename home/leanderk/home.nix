@@ -14,13 +14,18 @@
 
     home.packages = with pkgs; [
         nnn
-        flameshot
+        fontforge-gtk
+        lcdf-typetools
+        xorg.fonttosfnt
+        bdfresize
+        xlsfonts
         steamcmd
         polychromatic
         steam-tui
         github-desktop
         google-chrome
         bitwarden-desktop
+        sway-contrib.grimshot
         xcur2png
         unzip
         zip
@@ -41,6 +46,7 @@
         eww
         nerd-fonts._3270
         nerd-fonts.geist-mono
+        nerd-fonts.terminess-ttf
         fira-mono
     ];
 

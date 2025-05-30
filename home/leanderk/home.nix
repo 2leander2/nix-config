@@ -27,6 +27,7 @@
         sway-contrib.grimshot
         xcur2png
         unzip
+        razer-cli
         zip
         wofi
         vesktop

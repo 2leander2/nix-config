@@ -24,7 +24,7 @@
         let
             system = "x86_64-linux";
             pkgs = import nixpkgs {
-            system = system;
+                system = system;
                 config.allowUnfree = true;
             };
             pkgs-unstable = import nixpkgs-unstable {
@@ -63,6 +63,41 @@
                         inherit pkgs-unstable;
                         inherit inputs;
                     };
+                };
+            };
+
+            devShells = {
+                ${system}.default = pkgs.mkShell {
+                    buildInputs = with pkgs; [
+                        git
+                        curl
+                        nodejs
+                        python3
+                        cmake
+                        pkg-config
+                        clinfo
+                        libffi
+                        wayland-scanner
+                        wayland
+                        libxkbcommon
+                        xorg.libX11
+                        xorg.libXrandr
+                        xorg.libXcursor
+                        xorg.libXinerama
+                        xorg.libXi
+                        xorg.libXext
+                        xorg.libXxf86vm
+                        mesa
+                        glxinfo
+                        ocl-icd
+                        opencl-headers
+                        libGL
+                        libGLU
+                    ];
+
+                    shellHook = ''
+                        export LD_LIBRARY_PATH=${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:$LD_LIBRARY_PATH
+                    '';
                 };
             };
         };

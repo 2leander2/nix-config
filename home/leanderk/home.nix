@@ -13,7 +13,6 @@
     home.stateVersion = "25.05";
 
     home.packages = with pkgs; [
-        nnn
         fontforge-gtk
         lcdf-typetools
         xorg.fonttosfnt

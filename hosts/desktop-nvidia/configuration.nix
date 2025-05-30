@@ -18,6 +18,22 @@
         ];
     };
 
+    fonts.fontconfig = {
+        enable = true;
+
+        antialias = false;
+        hinting.enable = true;
+        hinting.style = "full";
+        hinting.autohint = false;
+        
+        subpixel = {
+            rgba = "rgb";
+            lcdfilter = "none";
+        };
+
+        useEmbeddedBitmaps = true;
+    };
+
     environment.etc."launch-sway.zsh".source = ../../launch-sway.zsh;
 
     programs.sway = {

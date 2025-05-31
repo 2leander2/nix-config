@@ -48,6 +48,15 @@
         nerd-fonts.geist-mono
         nerd-fonts.terminess-ttf
         fira-mono
+        htop
+        atop
+        nchat
+        xfce.thunar
+        xfce.thunar-volman
+        xfce.thunar-archive-plugin
+        gvfs
+        baobab
+        nextcloud-client
     ];
 
 # https://google.de

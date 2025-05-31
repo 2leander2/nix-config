@@ -18,22 +18,6 @@
         ];
     };
 
-    fonts.fontconfig = {
-        enable = true;
-
-        antialias = false;
-        hinting.enable = true;
-        hinting.style = "full";
-        hinting.autohint = false;
-        
-        subpixel = {
-            rgba = "rgb";
-            lcdfilter = "none";
-        };
-
-        useEmbeddedBitmaps = true;
-    };
-
     environment.etc."launch-sway.zsh".source = ../../launch-sway.zsh;
 
     programs.sway = {
@@ -135,6 +119,7 @@
     services.pulseaudio.enable = false;
 
     services.gnome.gnome-keyring.enable = true;
+    security.pam.services.greetd.enableGnomeKeyring = true;
 
     networking.networkmanager.enable = true;
     time.timeZone = "Europe/Berlin";

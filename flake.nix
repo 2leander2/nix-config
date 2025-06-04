@@ -23,15 +23,16 @@
         }@inputs:
         let
             system = "x86_64-linux";
+            overlays = [
+                (import ./pkgs/gpu-screen-recorder-ui)
+            ];
             pkgs = import nixpkgs {
-                system = system;
+                inherit system;
                 config.allowUnfree = true;
-                overlays = [
-                    (import ./pkgs/gpu-screen-recorder-ui)
-                ];
+                overlays = overlays;
             };
             pkgs-unstable = import nixpkgs-unstable {
-                system = system;
+                inherit system;
                 config.allowUnfree = true;
             };
         in
@@ -41,8 +42,8 @@
                     inherit system;
                     modules = [
                         lanzaboote.nixosModules.lanzaboote
+                        ./modules/gpu-screen-recorder-ui.nix
                         ./hosts/desktop-nvidia/configuration.nix
-                        ({ pkgs, ... }: { nixpkgs.overlays = [ (import ./pkgs/gpu-screen-recorder-ui) ]; })
                     ];
                     specialArgs = {
                         inherit pkgs-unstable;

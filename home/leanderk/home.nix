@@ -81,6 +81,7 @@ in
         blender
         j4-dmenu-desktop
         vlc
+        tree
     ];
 
     # xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;

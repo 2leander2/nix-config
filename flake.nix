@@ -26,6 +26,9 @@
             pkgs = import nixpkgs {
                 system = system;
                 config.allowUnfree = true;
+                overlays = [
+                    (import ./pkgs/gpu-screen-recorder-ui)
+                ];
             };
             pkgs-unstable = import nixpkgs-unstable {
                 system = system;
@@ -39,6 +42,7 @@
                     modules = [
                         lanzaboote.nixosModules.lanzaboote
                         ./hosts/desktop-nvidia/configuration.nix
+                        ({ pkgs, ... }: { nixpkgs.overlays = [ (import ./pkgs/gpu-screen-recorder-ui) ]; })
                     ];
                     specialArgs = {
                         inherit pkgs-unstable;
@@ -63,41 +67,6 @@
                         inherit pkgs-unstable;
                         inherit inputs;
                     };
-                };
-            };
-
-            devShells = {
-                ${system}.default = pkgs.mkShell {
-                    buildInputs = with pkgs; [
-                        git
-                        curl
-                        nodejs
-                        python3
-                        cmake
-                        pkg-config
-                        clinfo
-                        libffi
-                        wayland-scanner
-                        wayland
-                        libxkbcommon
-                        xorg.libX11
-                        xorg.libXrandr
-                        xorg.libXcursor
-                        xorg.libXinerama
-                        xorg.libXi
-                        xorg.libXext
-                        xorg.libXxf86vm
-                        mesa
-                        glxinfo
-                        ocl-icd
-                        opencl-headers
-                        libGL
-                        libGLU
-                    ];
-
-                    shellHook = ''
-                        export LD_LIBRARY_PATH=${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:$LD_LIBRARY_PATH
-                    '';
                 };
             };
         };

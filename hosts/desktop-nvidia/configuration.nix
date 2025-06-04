@@ -25,6 +25,7 @@
         wrapperFeatures.gtk = true;
     };
     programs.zsh.enable = true;
+    programs.gpu-screen-recorder-ui.enable = true;
 
     xdg.portal = {
         enable = true;

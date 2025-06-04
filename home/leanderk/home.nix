@@ -6,11 +6,25 @@
     inputs,
     ...
 }:
-
+let
+    myToybox = pkgs.toybox.overrideAttrs (old: {
+        postInstall = ''
+            rm $out/bin/readelf
+            rm $out/bin/strings
+        '';
+    });
+in
 {
     home.username = "leanderk";
     home.homeDirectory = "/home/leanderk";
     home.stateVersion = "25.05";
+
+    programs.obs-studio = {
+        enable = true;
+        package = pkgs.obs-studio.override {
+            cudaSupport = true;
+        };
+    };
 
     home.packages = with pkgs; [
         fontforge-gtk
@@ -41,7 +55,7 @@
         alacritty
         firefox
         neovim
-        toybox
+        myToybox
         waybar
         eww
         nerd-fonts._3270
@@ -57,9 +71,18 @@
         gvfs
         baobab
         nextcloud-client
+        discord
+        betterdiscordctl
+        wl-color-picker
+        direnv
+        nix-direnv
+        gcc
+        unityhub
+        blender
+        j4-dmenu-desktop
+        vlc
     ];
 
-# https://google.de
     # xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
     # home.file.".zshrc".source = ./zshrc;
 }

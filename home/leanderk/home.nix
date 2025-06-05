@@ -82,6 +82,12 @@ in
         j4-dmenu-desktop
         vlc
         tree
+        vulkan-tools
+        networkmanagerapplet
+        qbittorrent
+        wireguard-tools
+        openvpn
+        unrar
     ];
 
     # xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;

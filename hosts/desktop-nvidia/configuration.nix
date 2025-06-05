@@ -50,8 +50,10 @@
         git
         wineWowPackages.stable
         wineWowPackages.waylandFull
+        mangohud
     ];
 
+    # programs.gamescope.enable = true;
     programs.steam = {
         enable = true;
         remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -98,6 +100,7 @@
             };
         };
     };
+    services.gvfs.enable = true;
 
     users.users.leanderk = {
         isNormalUser = true;

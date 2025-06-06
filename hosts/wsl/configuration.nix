@@ -25,6 +25,14 @@
         enable = true;
         wrapperFeatures.gtk = true;
     };
+    programs.zsh.enable = true;
+    programs.gpu-screen-recorder-ui.enable = true;
+
+    xdg.portal = {
+        enable = true;
+        wlr.enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -37,7 +45,17 @@
         wl-clipboard
         mako
         git
+        wineWowPackages.stable
+        wineWowPackages.waylandFull
+        mangohud
     ];
+
+    programs.steam = {
+        enable = true;
+        remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+        dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+        localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    };
 
     nixpkgs.config.allowUnfree = true;
 
@@ -50,6 +68,7 @@
             };
         };
     };
+    services.gvfs.enable = true;
 
     users.users.leanderk = {
         isNormalUser = true;

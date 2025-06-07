@@ -73,7 +73,8 @@ in
         nextcloud-client
         discord
         betterdiscordctl
-        wl-color-picker
+        imagemagick
+        feh
         direnv
         nix-direnv
         gcc
@@ -88,6 +89,7 @@ in
         wireguard-tools
         openvpn
         unrar
+        jq
     ];
 
     # xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;

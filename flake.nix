@@ -51,6 +51,7 @@
               nixpkgs.overlays = overlays;
               nixpkgs.config.allowUnfree = true;
             })
+            ./modules/gpu-screen-recorder-ui.nix
             ./hosts/wsl/configuration.nix
           ];
           specialArgs = {

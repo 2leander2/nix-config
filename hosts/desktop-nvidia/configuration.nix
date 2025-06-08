@@ -100,8 +100,8 @@
             };
         };
     };
-    services.gvfs.enable = true;
 
+    users.groups.storage = {};
     users.users.leanderk = {
         isNormalUser = true;
         shell = pkgs.zsh;
@@ -109,6 +109,7 @@
             "wheel"
             "networkmanager"
             "openrazer"
+            "storage"
         ];
         description = "Leander Kroth";
     };
@@ -124,6 +125,21 @@
 
     services.gnome.gnome-keyring.enable = true;
     security.pam.services.greetd.enableGnomeKeyring = true;
+
+    services.gvfs.enable = true;
+    services.udisks2.enable = true;
+
+    security.polkit.enable = true;
+    security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+        if (
+        action.id == "org.freedesktop.udisks2.filesystem-mount-system" &&
+        subject.isInGroup("storage")
+        ) {
+        return polkit.Result.YES;
+        }
+    });
+    '';
 
     networking.networkmanager.enable = true;
     time.timeZone = "Europe/Berlin";

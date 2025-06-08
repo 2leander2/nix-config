@@ -90,6 +90,7 @@ in
         openvpn
         unrar
         jq
+        prismlauncher
     ];
 
     # xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;

@@ -91,6 +91,9 @@ in
         unrar
         jq
         prismlauncher
+        xorg.xlsclients
+        protonup-qt
+        bottles
     ];
 
     # xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;

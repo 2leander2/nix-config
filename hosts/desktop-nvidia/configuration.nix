@@ -53,7 +53,7 @@
         mangohud
     ];
 
-    # programs.gamescope.enable = true;
+    programs.gamescope.enable = true;
     programs.steam = {
         enable = true;
         remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -129,6 +129,10 @@
     services.gvfs.enable = true;
     services.udisks2.enable = true;
 
+    services.resolved.enable = true;
+    networking.networkmanager.enable = true;
+    networking.firewall.checkReversePath = "loose";
+
     security.polkit.enable = true;
     security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
@@ -141,7 +145,6 @@
     });
     '';
 
-    networking.networkmanager.enable = true;
     time.timeZone = "Europe/Berlin";
     i18n.defaultLocale = "en_US.UTF-8";
 

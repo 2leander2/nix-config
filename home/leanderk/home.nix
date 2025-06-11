@@ -94,6 +94,10 @@ in
         xorg.xlsclients
         protonup-qt
         bottles
+        p7zip
+        aria2
+        file
+        lutris
     ];
 
     # xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;

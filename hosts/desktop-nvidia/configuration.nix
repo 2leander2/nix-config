@@ -48,9 +48,13 @@
         mako
         zsh
         git
+        # vvvvvvvvvv TODO: These could be home packages I think?
+        wine
+        winetricks
         wineWowPackages.stable
         wineWowPackages.waylandFull
         mangohud
+        lutris
     ];
 
     programs.gamescope.enable = true;
@@ -64,6 +68,7 @@
     nixpkgs.config.allowUnfree = true;
     hardware.graphics = {
         enable = true;
+        enable32Bit = true;
     };
     services.xserver.videoDrivers = ["nvidia"];
     hardware.nvidia = {

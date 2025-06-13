@@ -98,6 +98,8 @@ in
         aria2
         file
         lutris
+        libreoffice
+        gedit
     ];
 
     # xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;

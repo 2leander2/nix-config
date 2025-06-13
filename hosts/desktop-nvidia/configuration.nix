@@ -19,6 +19,8 @@
     };
 
     environment.etc."launch-sway.zsh".source = ../../launch-sway.zsh;
+    # https://www.reddit.com/r/NixOS/comments/1bbjqcn/how_to_enable_gnomekeyring_in_hyprland/
+    environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
 
     programs.sway = {
         enable = true;
@@ -48,6 +50,7 @@
         mako
         zsh
         git
+        libsecret
         # vvvvvvvvvv TODO: These could be home packages I think?
         wine
         winetricks
@@ -55,6 +58,7 @@
         wineWowPackages.waylandFull
         mangohud
         lutris
+        python3
     ];
 
     programs.gamescope.enable = true;

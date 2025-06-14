@@ -58,10 +58,6 @@ in
         myToybox
         waybar
         eww
-        nerd-fonts._3270
-        nerd-fonts.geist-mono
-        nerd-fonts.terminess-ttf
-        fira-mono
         htop
         atop
         nchat

@@ -1,0 +1,10 @@
+TODO:
+
+Declare and symlink:
+
+- dotfiles
+- fonts
+- cursor themes
+- scripts
+- .desktop
+- nix-shell zsh plugin

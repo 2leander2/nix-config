@@ -19,13 +19,6 @@ in
     home.homeDirectory = "/home/leanderk";
     home.stateVersion = "25.05";
 
-    programs.obs-studio = {
-        enable = true;
-        package = pkgs.obs-studio.override {
-            cudaSupport = true;
-        };
-    };
-
     home.packages = with pkgs; [
         fontforge-gtk
         lcdf-typetools
@@ -96,6 +89,14 @@ in
         lutris
         libreoffice
         gedit
+        xorg.xcursorthemes
+        squashfsTools
+        xorg.xcursorgen
+        win2xcur
+        pkgs-unstable.gimp3
+        hackneyed
+        quintom-cursor-theme
+        oh-my-zsh
     ];
 
     # xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;

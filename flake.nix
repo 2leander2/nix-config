@@ -1,5 +1,5 @@
 {
-  description = "NixOS with Hyprland (Flake)";
+  description = "NixOS with SwayWM (Flake)";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/25.05";
@@ -67,6 +67,19 @@
             inherit pkgs-unstable;
             inherit inputs;
           };
+        };
+      };
+
+      devShells = {
+        ${system}.default = pkgs.mkShell {
+          name = "default-shell";
+          buildInputs = [ pkgs.zsh ];
+          shellHook = ''
+            export SHELL=${pkgs.zsh}/bin/zsh
+            if [ -z "$ZSH_VERSION" ]; then
+              exec ${pkgs.zsh}/bin/zsh -i
+            fi
+          '';
         };
       };
     };

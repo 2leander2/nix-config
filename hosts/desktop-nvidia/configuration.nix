@@ -48,7 +48,6 @@
         slurp
         wl-clipboard
         mako
-        zsh
         git
         libsecret
         # vvvvvvvvvv TODO: These could be home packages I think?
